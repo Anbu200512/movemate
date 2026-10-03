@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Parent Dashboard - MoveMate | My Moving Bookings</title>
+  <meta name="description" content="MoveMate parent dashboard: book moving help, track your crew, manage payments and your profile.">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('movemate_theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && systemDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#fdf3f3', 100: '#fbe5e5', 200: '#f7cccc', 300: '#f0a3a5', 400: '#e26a6d', 500: '#c0171a', 600: '#9a0002', 700: '#7c0002', 800: '#5f0001', 900: '#460001' },
+            accent: { 50: '#fefcf9', 100: '#fbf7f2', 200: '#f6efe6', 300: '#efe6dd', 400: '#e0d3c3', 500: '#bfae97', 600: '#9b8a73', 700: '#776852', 800: '#544838', 900: '#3a3229' }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+<!-- Navbar -->
+  <nav id="main-navbar" class="hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Move<span class="text-primary-600 dark:text-primary-400">Mate</span></span>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+          <div class="relative" data-nav-dropdown>
+            <button type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Home
+              <svg xmlns="http://www.w3.org/2000/svg" data-dropdown-caret class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg py-1.5 z-50">
+              <a href="index.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home 1</a>
+              <a href="home2.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+          <a href="services.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Services</a>
+          <a href="pricing.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pricing</a>
+          <a href="faq.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</a>
+          <a href="contact.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+          <div class="relative" data-nav-dropdown>
+            <button type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Dashboard
+              <svg xmlns="http://www.w3.org/2000/svg" data-dropdown-caret class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg py-1.5 z-50">
+              <a href="admin.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Admin</a>
+              <a href="parent.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Parent</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button data-theme-toggle class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+            <svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button data-rtl-toggle class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL/LTR">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </button>
+          <button id="nav-hamburger" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <a href="login.html" data-auth-link class="hidden lg:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors btn-press">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-white dark:bg-gray-900 z-50 shadow-2xl mobile-menu hidden overflow-y-auto">
+    <div class="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+      <span class="text-lg font-bold">Menu</span>
+      <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="p-4 space-y-2">
+      <div data-mobile-accordion>
+        <button type="button" data-accordion-trigger aria-expanded="false" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">
+          <span>Home</span>
+          <svg xmlns="http://www.w3.org/2000/svg" data-accordion-caret class="w-4 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div data-accordion-panel class="hidden pl-3 mt-1 space-y-1">
+          <a href="index.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home 1</a>
+          <a href="home2.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home 2</a>
+        </div>
+      </div>
+      <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">About</a>
+      <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Services</a>
+      <a href="pricing.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Pricing</a>
+      <a href="faq.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">FAQ</a>
+      <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Contact</a>
+      <div data-mobile-accordion>
+        <button type="button" data-accordion-trigger aria-expanded="false" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">
+          <span>Dashboard</span>
+          <svg xmlns="http://www.w3.org/2000/svg" data-accordion-caret class="w-4 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div data-accordion-panel class="hidden pl-3 mt-1 space-y-1">
+          <a href="admin.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Admin</a>
+          <a href="parent.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Parent</a>
+        </div>
+      </div>
+      <a href="login.html" data-auth-link class="block w-full text-center px-4 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-sm transition-colors">Login</a>
+    </div>
+  </div>
+
+  
+<!-- Dashboard Layout -->
+  <div class="flex min-h-screen">
+    <div id="dashboard-sidebar-overlay" class="fixed inset-0 z-40 bg-gray-950/50 hidden lg:hidden"></div>
+    <div class="flex-1 min-w-0 lg:ml-72 px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-6 lg:gap-8 items-start">
+
+        <!-- Sidebar -->
+        <aside id="dashboard-sidebar-panel" class="w-72 max-w-[85vw] flex-shrink-0 fixed inset-y-0 left-0 z-50 -translate-x-full transition-transform duration-300 lg:top-0 lg:bottom-0 lg:translate-x-0">
+          <div class="h-full flex flex-col bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 overflow-hidden">
+            <a href="index.html" class="flex items-center gap-3 px-6 py-6 border-b border-gray-100 dark:border-gray-700" aria-label="MoveMate home">
+              <span class="w-10 h-10 rounded-xl bg-primary-600 text-white flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></span>
+              <span class="text-xl font-extrabold text-gray-900 dark:text-white">Move<span class="text-primary-600 dark:text-primary-400">Mate</span></span>
+            </a>
+            <div class="mx-4 mt-5 mb-4 flex items-center gap-3 rounded-xl bg-primary-50 dark:bg-primary-900/20 p-3">
+              <span class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></span>
+              <span><strong class="block text-sm text-gray-900 dark:text-white">Customer</strong><small class="text-xs text-gray-500 dark:text-gray-400">Personal workspace</small></span>
+              <button type="button" data-sidebar-close class="lg:hidden ml-auto p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Close dashboard menu"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+            </div>
+            <div class="px-5 pb-2"><h2 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Workspace</h2></div>
+            <nav id="dashboard-sidebar" class="dashboard-sidebar-nav flex-1 p-2 space-y-1 overflow-y-auto">
+              <a href="#" data-sidebar-link="overview" class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                Overview
+              </a>
+              <a href="#" data-sidebar-link="bookings" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                My Bookings
+              </a>
+              <a href="#" data-sidebar-link="crew" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                Track Crew
+              </a>
+              <a href="#" data-sidebar-link="payments" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                Payments
+              </a>
+              <a href="#" data-sidebar-link="profile" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                Profile
+              </a>
+              <a href="#" data-sidebar-link="notifications" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                Notifications
+              </a>
+              <a href="#" data-sidebar-link="support" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.09 9a3 3 0 015.82 1c0 2-3 3-3 3m.08 4h.01"/></svg>Help &amp; Support</a>
+            </nav>
+            <div class="mt-auto p-4 border-t border-gray-100 dark:border-gray-700">
+              <div class="mb-4 flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Demo workspace</div>
+              <button type="button" onclick="window.MoveMateAuth.logout()" class="w-full flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>Sign out</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0 pt-20">
+          <header class="fixed top-0 left-0 right-0 lg:left-72 z-30 flex min-h-[76px] items-center justify-between gap-4 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 px-4 sm:px-6 lg:px-8 py-3 backdrop-blur">
+            <div class="flex items-center gap-3"><button id="sidebar-toggle" type="button" class="lg:hidden p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Open dashboard menu" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div><p class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Customer workspace</p><h2 id="customer-tab-title" class="text-lg font-bold text-gray-900 dark:text-white">Overview</h2></div></div>
+            <div class="flex items-center gap-2 sm:gap-4"><span class="hidden lg:inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Demo workspace</span><button data-rtl-toggle class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle RTL/LTR" title="Toggle text direction"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></button><button data-theme-toggle class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode" title="Toggle dark mode"><svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="4.22"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg><svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><a href="index.html" class="hidden lg:inline text-sm font-semibold text-primary-600 dark:text-primary-400 hover:underline">View website</a><span class="w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 font-bold flex items-center justify-center" aria-label="Customer">C</span></div>
+          </header>
+          <div class="lg:hidden mb-6 overflow-x-auto">
+            <div class="flex gap-2 min-w-max">
+            <button data-tab-btn="overview" class="active px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg whitespace-nowrap">Overview</button>
+            <button data-tab-btn="bookings" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg whitespace-nowrap">My Bookings</button>
+            <button data-tab-btn="crew" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg whitespace-nowrap">Track Crew</button>
+            <button data-tab-btn="payments" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg whitespace-nowrap">Payments</button>
+            <button data-tab-btn="profile" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg whitespace-nowrap">Profile</button>
+            <button data-tab-btn="notifications" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg whitespace-nowrap">Notifications</button>
+            <button data-tab-btn="support" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg whitespace-nowrap">Support</button>
+            </div>
+          </div>
+
+          <div data-tab-content="overview">
+            <div id="overview-content"></div>
+          </div>
+          <div data-tab-content="bookings" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">My Bookings</h1>
+            <div id="bookings-list"></div>
+          </div>
+          <div data-tab-content="crew" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Track Crew</h1>
+            <div id="crew-content"></div>
+          </div>
+          <div data-tab-content="payments" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Payments</h1>
+            <div id="payments-list"></div>
+          </div>
+          <div data-tab-content="profile" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Profile</h1>
+            <div id="profile-content"></div>
+          </div>
+          <div data-tab-content="notifications" class="hidden space-y-6">
+            <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Notifications</h1>
+            <div id="notifications-list" class="space-y-3"></div>
+          </div>
+          <div data-tab-content="support" class="hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <section class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Talk to our team</h2>
+                <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Get help with your booking, schedule, or moving-day questions.</p>
+                <div class="mt-5 flex flex-wrap gap-3"><a href="tel:+919876543210" class="inline-flex items-center justify-center rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700">Call support</a><a href="mailto:support@movemate.in" class="inline-flex items-center justify-center rounded-xl border border-gray-300 dark:border-gray-600 px-4 py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700">Email us</a></div>
+                <p class="mt-4 text-xs text-gray-500 dark:text-gray-400">Daily, 7 AM–9 PM · support@movemate.in</p>
+              </section>
+              <section class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Helpful resources</h2>
+                <div class="mt-4 space-y-3"><a href="faq.html" class="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-700/50 p-4 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-primary-900/20"><span>Browse FAQs</span><span aria-hidden="true">→</span></a><a href="services.html" class="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-700/50 p-4 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-primary-900/20"><span>Explore services</span><span aria-hidden="true">→</span></a><a href="pricing.html" class="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-700/50 p-4 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-primary-900/20"><span>Review pricing</span><span aria-hidden="true">→</span></a></div>
+              </section>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top w-12 h-12 rounded-full bg-primary-600 hover:bg-primary-700 text-white shadow-lg flex items-center justify-center transition-all">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

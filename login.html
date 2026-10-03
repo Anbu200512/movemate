@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Login - MoveMate | Customer Account</title>
+  <meta name="description" content="Login to your MoveMate account to manage bookings, crew assignments, and payments.">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('movemate_theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && systemDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#fdf3f3', 100: '#fbe5e5', 200: '#f7cccc', 300: '#f0a3a5', 400: '#e26a6d', 500: '#c0171a', 600: '#9a0002', 700: '#7c0002', 800: '#5f0001', 900: '#460001' },
+            accent: { 50: '#fefcf9', 100: '#fbf7f2', 200: '#f6efe6', 300: '#efe6dd', 400: '#e0d3c3', 500: '#bfae97', 600: '#9b8a73', 700: '#776852', 800: '#544838', 900: '#3a3229' }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <button data-rtl-toggle class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-2.5 text-gray-600 dark:text-gray-300 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle RTL/LTR" title="Toggle text direction">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+    </button>
+    <button data-theme-toggle class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-2.5 text-gray-600 dark:text-gray-300 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+      <svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Move<span class="text-primary-600 dark:text-primary-400">Mate</span></span>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+          <div class="relative" data-nav-dropdown>
+            <button type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Home
+              <svg xmlns="http://www.w3.org/2000/svg" data-dropdown-caret class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg py-1.5 z-50">
+              <a href="index.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home 1</a>
+              <a href="home2.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+          <a href="services.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Services</a>
+          <a href="pricing.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pricing</a>
+          <a href="faq.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</a>
+          <a href="contact.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+          <div class="relative" data-nav-dropdown>
+            <button type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Dashboard
+              <svg xmlns="http://www.w3.org/2000/svg" data-dropdown-caret class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg py-1.5 z-50">
+              <a href="admin.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Admin</a>
+              <a href="parent.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Parent</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button data-theme-toggle class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+            <svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button data-rtl-toggle class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL/LTR">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </button>
+          <button id="nav-hamburger" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <a href="login.html" data-auth-link class="hidden lg:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors btn-press">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-white dark:bg-gray-900 z-50 shadow-2xl mobile-menu hidden overflow-y-auto">
+    <div class="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+      <span class="text-lg font-bold">Menu</span>
+      <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="p-4 space-y-2">
+      <div data-mobile-accordion>
+        <button type="button" data-accordion-trigger aria-expanded="false" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">
+          <span>Home</span>
+          <svg xmlns="http://www.w3.org/2000/svg" data-accordion-caret class="w-4 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div data-accordion-panel class="hidden pl-3 mt-1 space-y-1">
+          <a href="index.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home 1</a>
+          <a href="home2.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home 2</a>
+        </div>
+      </div>
+      <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">About</a>
+      <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Services</a>
+      <a href="pricing.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Pricing</a>
+      <a href="faq.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">FAQ</a>
+      <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Contact</a>
+      <div data-mobile-accordion>
+        <button type="button" data-accordion-trigger aria-expanded="false" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">
+          <span>Dashboard</span>
+          <svg xmlns="http://www.w3.org/2000/svg" data-accordion-caret class="w-4 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div data-accordion-panel class="hidden pl-3 mt-1 space-y-1">
+          <a href="admin.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Admin</a>
+          <a href="parent.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Parent</a>
+        </div>
+      </div>
+      <a href="login.html" data-auth-link class="block w-full text-center px-4 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-sm transition-colors">Login</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex items-center justify-center px-4 pt-24 pb-10 sm:py-12">
+    <div class="w-full max-w-5xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700">
+        <div class="relative min-h-[240px] md:min-h-[520px]">
+          <img src="assets/login-home.jpg" alt="Bright living room in a welcoming home" class="absolute inset-0 w-full h-full object-cover" fetchpriority="high">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-950/15 to-transparent"></div>
+          <div class="absolute top-6 left-6 lg:top-8 lg:left-8">
+            <a href="index.html" class="inline-flex items-center gap-2" aria-label="MoveMate home">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+              <span class="text-xl font-bold text-gray-900 dark:text-white">Move<span class="text-primary-600 dark:text-primary-400">Mate</span></span>
+            </a>
+          </div>
+          <div class="absolute inset-x-0 bottom-0 p-8 lg:p-10 text-white">
+            <h1 class="text-3xl font-bold leading-tight">Welcome Back</h1>
+            <p class="mt-2 text-sm leading-6 text-white/85">Login to your MoveMate account</p>
+          </div>
+        </div>
+        <div class="p-6 sm:p-8 lg:p-10">
+        <div class="mb-7">
+          <span class="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-900/30 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700 dark:text-primary-300">Demo access</span>
+          <h2 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Sign in to your account</h2>
+          <p class="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">Enter your email or mobile number to continue to your MoveMate dashboard.</p>
+        </div>
+        <form id="login-form" class="space-y-6">
+          <div>
+            <label for="login-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email or Mobile Number</label>
+            <div class="relative">
+              <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <input type="text" id="login-email" autocomplete="username" placeholder="Enter email or mobile" class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white input-focus" required>
+            </div>
+          </div>
+          <div>
+            <label for="login-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
+            <div class="relative">
+              <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <input type="password" id="login-password" autocomplete="current-password" placeholder="Enter password" class="w-full pl-12 pr-12 py-3.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white input-focus" required>
+              <button type="button" data-password-toggle="login-password" aria-label="Show password" title="Show password" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="login-remember" class="custom-checkbox">
+              <span class="text-sm text-gray-600 dark:text-gray-400">Remember me</span>
+            </label>
+            <a href="#" id="forgot-password-link" class="text-sm text-primary-600 dark:text-primary-400 hover:underline">Forgot password?</a>
+          </div>
+          <button type="submit" class="w-full px-6 py-3.5 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors btn-press flex items-center justify-center gap-2 shadow-sm hover:shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+            Login
+          </button>
+        </form>
+
+        <div class="my-6 flex items-center gap-4" aria-hidden="true">
+          <span class="h-px flex-1 bg-gray-200 dark:bg-gray-700"></span>
+          <span class="text-xs font-medium uppercase tracking-wider text-gray-400">Or continue with</span>
+          <span class="h-px flex-1 bg-gray-200 dark:bg-gray-700"></span>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <button type="button" data-demo-provider="Google" aria-label="Continue with Google" title="Continue with Google" class="inline-flex h-12 items-center justify-center rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.73 7.18l7.27 5.64c4.24-3.91 6.68-9.68 6.68-17.29z"/><path fill="#FBBC05" d="M10.53 28.59A14.3 14.3 0 019.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 000 24c0 3.88.93 7.55 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.27-5.64c-2.02 1.36-4.6 2.17-8.64 2.17-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </button>
+          <button type="button" data-demo-provider="Apple" aria-label="Continue with Apple" title="Continue with Apple" class="inline-flex h-12 items-center justify-center rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.77 14.43 3.6 5.74 9.4 5.42c1.4.08 2.38.78 3.2.84 1.22-.25 2.38-.97 3.68-.88 1.56.13 2.73.74 3.5 1.84-3.2 1.92-2.44 6.13.5 7.31-.59 1.55-1.37 3.09-2.24 4.36zM12.03 5.33c-.15-2.3 1.72-4.2 3.87-4.33.3 2.66-2.42 4.66-3.87 4.33z"/></svg>
+          </button>
+          <button type="button" data-demo-provider="Facebook" aria-label="Continue with Facebook" title="Continue with Facebook" class="inline-flex h-12 items-center justify-center rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-[#1877F2]" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.4c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.27h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </button>
+        </div>
+
+        <div class="mt-6 text-center">
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Don't have an account?
+            <a href="signup.html" class="text-primary-600 dark:text-primary-400 font-medium hover:underline">Sign up</a>
+          </p>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>FAQ - MoveMate | Frequently Asked Questions</title>
+  <meta name="description" content="Answers to common questions about MoveMate moving labor services - booking, pricing, payment, packing, cancellations, and refunds.">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('movemate_theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && systemDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#fdf3f3', 100: '#fbe5e5', 200: '#f7cccc', 300: '#f0a3a5', 400: '#e26a6d', 500: '#c0171a', 600: '#9a0002', 700: '#7c0002', 800: '#5f0001', 900: '#460001' },
+            accent: { 50: '#fefcf9', 100: '#fbf7f2', 200: '#f6efe6', 300: '#efe6dd', 400: '#e0d3c3', 500: '#bfae97', 600: '#9b8a73', 700: '#776852', 800: '#544838', 900: '#3a3229' }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex flex-col min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 navbar-glass border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Move<span class="text-primary-600 dark:text-primary-400">Mate</span></span>
+        </div>
+        <div class="hidden lg:flex items-center gap-6">
+          <div class="relative" data-nav-dropdown>
+            <button type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Home
+              <svg xmlns="http://www.w3.org/2000/svg" data-dropdown-caret class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg py-1.5 z-50">
+              <a href="index.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home 1</a>
+              <a href="home2.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home 2</a>
+            </div>
+          </div>
+          <a href="about.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+          <a href="services.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Services</a>
+          <a href="pricing.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pricing</a>
+          <a href="faq.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</a>
+          <a href="contact.html" data-nav-link class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+          <div class="relative" data-nav-dropdown>
+            <button type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              Dashboard
+              <svg xmlns="http://www.w3.org/2000/svg" data-dropdown-caret class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div data-dropdown-menu class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg py-1.5 z-50">
+              <a href="admin.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Admin</a>
+              <a href="parent.html" data-nav-link class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-accent-50 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Parent</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button data-theme-toggle class="hidden lg:inline-flex p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+            <svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button data-rtl-toggle class="hidden lg:inline-flex p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle RTL/LTR">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </button>
+          <button id="nav-hamburger" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <a href="login.html" data-auth-link class="hidden lg:inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium rounded-lg transition-colors btn-press">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 bg-white dark:bg-gray-900 z-50 shadow-2xl mobile-menu hidden overflow-y-auto">
+    <div class="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+      <span class="text-lg font-bold">Menu</span>
+      <button id="mobile-menu-close" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="p-4 space-y-2">
+      <div data-mobile-accordion>
+        <button type="button" data-accordion-trigger aria-expanded="false" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">
+          <span>Home</span>
+          <svg xmlns="http://www.w3.org/2000/svg" data-accordion-caret class="w-4 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div data-accordion-panel class="hidden pl-3 mt-1 space-y-1">
+          <a href="index.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home 1</a>
+          <a href="home2.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Home 2</a>
+        </div>
+      </div>
+      <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">About</a>
+      <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Services</a>
+      <a href="pricing.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Pricing</a>
+      <a href="faq.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">FAQ</a>
+      <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">Contact</a>
+      <div data-mobile-accordion>
+        <button type="button" data-accordion-trigger aria-expanded="false" class="w-full flex items-center justify-between px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 font-medium">
+          <span>Dashboard</span>
+          <svg xmlns="http://www.w3.org/2000/svg" data-accordion-caret class="w-4 h-5 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div data-accordion-panel class="hidden pl-3 mt-1 space-y-1">
+          <a href="admin.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Admin</a>
+          <a href="parent.html" data-nav-link class="block px-4 py-2.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Parent</a>
+        </div>
+      </div>
+      <div class="mt-3 flex justify-center gap-4 border-t border-gray-200 dark:border-gray-800 pt-4"><button data-rtl-toggle class="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle RTL/LTR" title="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></button><button data-theme-toggle class="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode" title="Toggle dark mode"><svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="4.22"/></svg><svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button></div>
+      <a href="login.html" data-auth-link class="mt-4 block w-full text-center px-4 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold shadow-sm transition-colors">Login</a>
+      <div class="hidden">
+        <button data-rtl-toggle class="flex items-center justify-center gap-2 rounded-xl border border-gray-200 dark:border-gray-700 px-3 py-3 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle RTL/LTR"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg><span>Direction</span></button>
+        <button data-theme-toggle class="flex items-center justify-center gap-2 rounded-xl border border-gray-200 dark:border-gray-700 px-3 py-3 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode"><svg data-theme-icon-sun xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="4.22"/></svg><svg data-theme-icon-moon xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span>Theme</span></button>
+      </div>
+    </div>
+  </div>
+
+<!-- Page Header -->
+  <main class="flex-1">
+<section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/faq-hero.jpg')"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-900/75 to-primary-900/60"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm sm:text-base font-semibold uppercase tracking-widest text-primary-200 mb-4 reveal">MoveMate Help Center</p>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 reveal">Frequently Asked Questions</h1>
+      <p class="text-lg sm:text-xl text-primary-100 max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 100ms">Clear answers for a smoother move—from choosing your crew to settling in.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4 reveal" style="transition-delay: 200ms">
+        <a href="#faq-search" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-700 font-semibold rounded-xl hover:bg-gray-100 transition-colors btn-press">Find an answer</a>
+        <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors btn-press">Contact Support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section class="py-10 bg-white dark:bg-gray-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="faq-search" type="search" placeholder="Search questions, e.g. price, cancellation, deposit..." autocomplete="off" class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors">
+      </div>
+      <p id="faq-search-empty" class="hidden text-center text-gray-500 dark:text-gray-400 mt-4">No questions match that search. Try a different keyword, or <a href="contact.html" class="text-primary-600 dark:text-primary-400 hover:underline">contact our team</a>.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Groups -->
+  <section class="pb-20 bg-white dark:bg-gray-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+      <!-- Booking -->
+      <div data-faq-group>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Booking</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="how do i book a service reserve a slot">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">How do I book a service?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Create an account, open your dashboard, and fill out the booking form. Choose your service type, date, time, number of workers, and hours needed. You will see an instant estimate before you confirm.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="how far in advance should i book last minute same day">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">How far in advance should I book?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">We recommend booking at least 48 hours ahead for weekends and month-end dates. For weekday moves, same-day slots are often available - search your dashboard for open windows and book directly.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="minimum hours minimum booking duration half hour">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Is there a minimum booking duration?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Yes, the minimum booking is two hours. Moves under two hours are charged as a two-hour booking. The extra time gives our crew enough room to finish loading safely without rushing.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="do you supply the truck vehicle van labor only">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Do you supply the truck or vehicle?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">No. MoveMate is a labor-only service, so you provide the truck or vehicle and we supply the verified workers who load, unload, carry, and lift. This is what keeps our hourly rates affordable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing & Payment -->
+      <div data-faq-group>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="23"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Pricing &amp; Payment</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="how much does it cost price per hour rate estimate">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">How much does it cost?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Pricing is hourly per worker, so your total depends on how many workers you book and how many hours they work. Heavy-item handling is added as a flat fee per item. Use the <a href="pricing.html" class="text-primary-600 dark:text-primary-400 hover:underline">pricing calculator</a> for an exact figure before booking.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="overtime extra hours charges if the move runs late">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">What happens if the move takes longer than planned?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Extra time is billed at the same standard hourly rate, so there are no surprise premiums. Our crew will always confirm with you before continuing past the booked hours. You can adjust the booking in your dashboard up to two hours before the start time.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="payment methods cash upi card upi id net banking accepted">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Which payment methods do you accept?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">UPI, credit and debit cards, and net banking are all supported for online payment. You can also pay cash or by UPI directly to the crew at the end of a job. Corporate accounts can request monthly invoicing.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="deposit advance booking amount confirm hold slot">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Do I need to pay a deposit to confirm?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">A small advance confirms the slot and holds your crew and time window. The balance is settled once the job is finished. The exact advance amount is shown on your booking summary before payment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Moving Day -->
+      <div data-faq-group>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">On Moving Day</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="are the workers verified background checked trained">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Are your workers background-checked?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Yes. Every mover is identity-verified and trained in safe lifting before joining a job. Crews also carry basic tools and moving blankets, and they wear uniform so you always know who is in your home.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="stairs lift elevator carry bulky sofa appliances">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Do you handle stairs and bulky furniture?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Stairs are included at no extra charge. For very bulky items such as sofas, wardrobes, and refrigerators, tell us in advance so we can send the right crew size. If your building has a service lift, mention it in your booking notes to save time.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="damage liability insurance coverage claims">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">What if something gets damaged?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Our crews are covered by liability insurance, and any damage should be reported within 24 hours so we can document and settle it fairly. Photographing items before and after the move makes any claim much faster to resolve.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="what should i have ready prepare before the crew arrives">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">What should I prepare before the crew arrives?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Clear walkways on both floors, empty and open any drawers, and keep fragile or high-value items packed yourself. Point out fragile surfaces like stairs, door frames, and glass doors before we start. A quick walkthrough with the crew helps everyone stay on the same page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packing & Protection -->
+      <div data-faq-group>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Packing &amp; Protection</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="do you offer packing service boxes bubble wrap packing materials">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Do you offer packing services and materials?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Our crews are happy to wrap and protect furniture with moving blankets, and we can supply boxes, bubble wrap, and tape at cost. Full packing and unpacking is billed by the hour like any other labor, so you stay in control of the budget.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="how long does a move take average time small apartment">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">How long does a typical move take?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">A one-bedroom move usually takes four to six hours with two workers, while a three-bedroom home runs closer to eight. Elevators, stairs, and heavy items all add time, which is why we recommend confirming your hours rather than guessing.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="storage warehouse short term long term keep belongings">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Do you offer storage between moves?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Yes, short-term and long-term storage is available for customers who need a gap between moving out and moving in. Contact us with your approximate volume and we will send a quote along with available unit sizes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancellations & Refunds -->
+      <div data-faq-group>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Cancellations &amp; Refunds</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="cancellation policy free cancel reschedule deadline penalty fee">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">What is your cancellation policy?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Cancel free of charge up to 24 hours before your start time. Inside 24 hours the advance is non-refundable, since the crew has already been scheduled and turned down other work. You can reschedule instead with no charge if you tell us early.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="refund how long does it take money back processed">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">How long does a refund take?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Refunds are initiated within 48 hours of approval and reach your original payment method in five to seven business days, depending on your bank or UPI provider.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="no show crew did not arrive late grace period">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">What if my crew is late or does not arrive?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">We allow a fifteen-minute grace window, and our support line stays reachable during every booking. If a crew cannot reach you, we send a replacement at no cost and extend the booked hours to cover the delay.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account & Support -->
+      <div data-faq-group>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Account &amp; Support</h2>
+        </div>
+        <div class="space-y-3">
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="do i need an account to book register signup">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Do I need an account to book?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Yes, a free account keeps your bookings, payment history, and receipts in one place, and lets you reschedule without calling us. <a href="signup.html" class="text-primary-600 dark:text-primary-400 hover:underline">Create an account</a> - it takes under a minute.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="support contact phone email hours available">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">How do I reach support?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">Call +91 98765 43210 or email <span class="font-medium">support@movemate.in</span>. We are open seven days a week from 7 AM to 9 PM, and our phone line stays active for the full duration of every booking.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden" data-faq-item data-search="service areas cities coverage where do you operate suburbs">
+            <button data-faq-toggle aria-expanded="false" class="w-full flex items-center justify-between p-5 text-left gap-4" aria-expanded="false">
+              <span class="font-medium text-gray-900 dark:text-white">Which areas do you serve?</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <div class="faq-answer px-5">
+              <p class="text-gray-600 dark:text-gray-400 pb-5">We currently cover Mumbai, Delhi, and Bangalore including all major suburbs. Intercity moves can be arranged with advance notice - send your route through the <a href="contact.html" class="text-primary-600 dark:text-primary-400 hover:underline">contact form</a> and we will confirm availability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Still Need Help CTA -->
+  <section class="px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 overflow-hidden rounded-3xl bg-gray-900 shadow-xl">
+      <div class="relative min-h-64 lg:min-h-[380px]">
+        <img src="assets/faq-cta.jpg" alt="Comfortable living room in a newly settled home" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      </div>
+      <div class="flex flex-col justify-center items-start p-8 sm:p-12 lg:p-14">
+        <p class="text-sm font-semibold uppercase tracking-widest text-primary-300 mb-3">We’re here to help</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Still have a question?</h2>
+        <p class="text-gray-300 mb-8">Our friendly team can help you plan your move and find the right crew for the job.</p>
+        <div class="flex flex-col sm:flex-row gap-3 w-full">
+          <a href="contact.html" class="inline-flex justify-center items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors btn-press">Contact Support</a>
+          <a href="services.html" class="inline-flex justify-center items-center px-6 py-3 border border-white/30 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors btn-press">Browse Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  </main>
+
+<footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-2 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary-600 dark:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Move<span class="text-primary-600 dark:text-primary-500">Mate</span></span>
+        </div>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-sm">Move Easier. Lift Smarter. Affordable local moving labor service you can trust.</p>
+          <div class="flex gap-3">
+            <a href="#" aria-label="MoveMate on X" title="X" class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="MoveMate on Facebook" title="Facebook" class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" aria-label="MoveMate on Instagram" title="Instagram" class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#" aria-label="MoveMate on LinkedIn" title="LinkedIn" class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 dark:hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
+        <div class="mt-8">
+          <p class="text-sm font-semibold text-gray-900 dark:text-white mb-3">Get moving tips and availability alerts</p>
+          <form class="flex gap-2 max-w-sm" action="#" method="post">
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input id="footer-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" class="flex-1 min-w-0 px-3 py-2.5 text-sm rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 transition-colors">
+            <button type="submit" class="shrink-0 px-4 py-2.5 text-sm font-medium rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-colors btn-press">Subscribe</button>
+          </form>
+          <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h3 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm uppercase tracking-wide">Quick Links</h3>
+        <ul class="space-y-2.5 text-sm">
+            <li><a href="index.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a></li>
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Services</a></li>
+            <li><a href="pricing.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Pricing</a></li>
+            <li><a href="about.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a></li>
+            <li><a href="contact.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a></li>
+            <li><a href="faq.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</a></li>
+            <li><a href="dashboard.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm uppercase tracking-wide">Services</h3>
+        <ul class="space-y-2.5 text-sm">
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Hourly Moving Labor</a></li>
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Loading Help</a></li>
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Unloading Help</a></li>
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Furniture Moving</a></li>
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Heavy Lifting</a></li>
+            <li><a href="services.html" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Moving Assistance</a></li>
+        </ul>
+        <a href="pricing.html" class="inline-flex items-center gap-1.5 mt-5 text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline">See full pricing<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm uppercase tracking-wide">Contact</h3>
+        <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+          <li class="flex items-start gap-2.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0 text-primary-600 dark:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><a href="tel:+919876543210" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">+91 98765 43210</a></li>
+          <li class="flex items-start gap-2.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0 text-primary-600 dark:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:support@movemate.in" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors break-all">support@movemate.in</a></li>
+          <li class="flex items-start gap-2.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0 text-primary-600 dark:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span>Mumbai, Delhi, Bangalore</span></li>
+          <li class="flex items-start gap-2.5"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0 text-primary-600 dark:text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon-Sun: 7 AM - 9 PM</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; <span data-current-year>2026</span> MoveMate. All rights reserved.</p>
+        <div class="flex gap-6 text-sm text-gray-500 dark:text-gray-400">
+          <a href="#" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="back-to-top w-12 h-12 rounded-full bg-primary-600 hover:bg-primary-700 text-white shadow-lg flex items-center justify-center transition-all">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/faq.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
