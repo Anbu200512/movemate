@@ -9,8 +9,7 @@
   <script>
     (function() {
       const saved = localStorage.getItem('movemate_theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && systemDark)) {
+      if (saved === 'dark') {
         document.documentElement.classList.add('dark');
       }
     })();
@@ -241,10 +240,10 @@
 <div class="relative h-40 bg-gradient-to-br from-primary-500 to-primary-700 overflow-hidden">
             <img src="assets/home2-unloading.jpg" alt="Mover unloading cardboard boxes from a delivery van" loading="lazy" class="w-full h-full object-cover">
           </div>
-          <div class="p-6">
+          <div class="p-6 flex flex-col">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Loading &amp; Unloading</h3>
             <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Truck, van, container or trailer. Crew loads and unloads to the marked spot.</p>
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between mt-auto">
               <span class="text-primary-600 dark:text-primary-400 font-semibold">From &#8377;299/hr</span>
               <a href="dashboard.html#book" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Book</a>
             </div>
@@ -254,10 +253,10 @@
 <div class="relative h-40 bg-gradient-to-br from-accent-400 to-accent-700 overflow-hidden">
             <img src="assets/home2-furniture.jpg" alt="Two movers carrying a couch inside a room filled with packed boxes" loading="lazy" class="w-full h-full object-cover">
           </div>
-          <div class="p-6">
+          <div class="p-6 flex flex-col">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Furniture Moving</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Sofas, beds, wardrobes and tables moved between rooms or floors.</p>
-            <div class="flex items-center justify-between">
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Sofas, beds, wardrobes and tables moved between rooms or floors.</p>
+            <div class="flex items-center justify-between mt-auto">
               <span class="text-primary-600 dark:text-primary-400 font-semibold">From &#8377;349/hr</span>
               <a href="dashboard.html#book" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Book</a>
             </div>
@@ -267,10 +266,10 @@
 <div class="relative h-40 bg-gradient-to-br from-primary-700 to-primary-900 overflow-hidden">
             <img src="assets/home2-packing.jpg" alt="Woman sealing packed cardboard boxes with tape for relocation" loading="lazy" class="w-full h-full object-cover">
           </div>
-          <div class="p-6">
+          <div class="p-6 flex flex-col">
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Packing &amp; Storage</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Full packing, labelling, and short-term storage for between moves.</p>
-            <div class="flex items-center justify-between">
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Full packing, labelling, and short-term storage for between moves.</p>
+            <div class="flex items-center justify-between mt-auto">
               <span class="text-primary-600 dark:text-primary-400 font-semibold">From &#8377;399/hr</span>
               <a href="dashboard.html#book" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Book</a>
             </div>

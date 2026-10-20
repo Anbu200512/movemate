@@ -37,15 +37,8 @@
   const MoveMateTheme = {
     init() {
       const saved = localStorage.getItem('movemate_theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (systemDark ? 'dark' : 'light');
+      const theme = saved || 'light';
       this.apply(theme);
-
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('movemate_theme')) {
-          this.apply(e.matches ? 'dark' : 'light');
-        }
-      });
     },
 
     apply(theme) {
